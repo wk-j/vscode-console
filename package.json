@@ -1,0 +1,27 @@
+{
+  "name": "vscode-console",
+  "version": "0.0.1",
+  "description": "Interactive Console for Cake (C# Make)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wk-j/cake-console.git"
+  },
+  "bin": {
+    "code-console": "./index.js"
+  },
+  "keywords": [
+    "cake",
+    "console"
+  ],
+  "author": "wk <somnuk.wk@gmail.com> (https://github.com/wk-j)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wk-j/cake-console/issues"
+  },
+  "homepage": "https://github.com/wk-j/cake-console#readme",
+  "dependencies": {}
+}

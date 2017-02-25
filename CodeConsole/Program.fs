@@ -4,6 +4,6 @@ open CodeConsole.Library
 
 [<EntryPoint>]
 let main argv = 
-    printfn "%A" argv
+    startConsole()
     0 // return an integer exit code
 
