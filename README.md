@@ -1,12 +1,14 @@
-## Open recent Visual Studio Code project from Command Line
+## Open Recent Visual Studio Code Project from Command Line
 
 macOS only
 
-![](Images/vscode-open-recent)
+![](Images/vscode-open-recent.png)
 
 ## Installation
 
-> `npm install -g vscode-open-recent`
+```bash
+npm install -g vscode-open-recent
+```
 
 ## Usage
 
