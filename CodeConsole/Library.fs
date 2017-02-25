@@ -5,6 +5,8 @@ open System.Runtime.Serialization
 open System.IO
 open System.Text
 open System
+open CodeConsole.Formatter
+open CodeConsole.Executor
 
 [<DataContract>]
 type Storage = {
@@ -37,9 +39,33 @@ let readConfig() =
               Folders = Array.empty<string> } 
         }
 
-let startConsole() =
-    let s = readConfig()
-    Console.WriteLine(Environment.OSVersion.Platform)
-    Console.WriteLine(s.OpenedPathsList.Folders.Length)
-    ()
+let getFolder ans (options: (string*string) list) = 
+    let ok, index = Int32.TryParse ans
+    match ok with 
+    | true ->
+        if index <= options.Length then
+            Some <| snd options.[index - 1] 
+        else None
+    | false ->
+        None
+
+let rec startConsole() =
+    let storage = readConfig()
+    let map x = 
+        let info = DirectoryInfo(x)
+        (info.Name, info.FullName)
+    let options = 
+        storage.OpenedPathsList.Folders 
+        |> Array.map map 
+        |> Array.truncate 20
+        |> Array.toList
+
+    let ans = readInput "Select project" options
+    let folder = getFolder ans options
+    match folder with
+    | Some folder -> 
+        executeCommand "code" (sprintf "\"%s\"" folder) 
+        startConsole()
+    | None -> 
+        startConsole()
 
