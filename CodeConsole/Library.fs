@@ -30,9 +30,17 @@ let readConfig() =
     let platform = Environment.OSVersion.Platform
     if platform = PlatformID.MacOSX || platform = PlatformID.Unix then
         let home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
-        let text = Path.Combine(home, "Library", "Application Support", "Code", "storage.json") |> File.ReadAllText
-        let storage = unjson<Storage>(text)
-        (storage)
+        let file = Path.Combine(home, "Library", "Application Support", "Code", "storage.json")
+        match File.Exists file with
+        | true ->
+            let text = file |> File.ReadAllText
+            let storage = unjson<Storage>(text)
+            (storage)
+        | false ->
+            { OpenedPathsList = 
+                { Files = Array.empty<string>
+                  Folders = Array.empty<string> } 
+            }
     else
         { OpenedPathsList = 
             { Files = Array.empty<string>

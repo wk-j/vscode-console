@@ -1,6 +1,6 @@
 {
   "name": "vscode-open-recent",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Open recent Visual Studio Code project from Command Line",
   "main": "index.js",
   "scripts": {
@@ -14,8 +14,8 @@
     "recent": "./index.js"
   },
   "keywords": [
-    "cake",
-    "console"
+    "vscode",
+    "Visual Studio Code"
   ],
   "author": "wk <somnuk.wk@gmail.com> (https://github.com/wk-j)",
   "license": "ISC",
