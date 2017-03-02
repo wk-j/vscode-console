@@ -57,7 +57,7 @@ let getFolder ans (options: (string*string) list) =
     | false ->
         None
 
-let rec startConsole() =
+let startConsole() =
     let storage = readConfig()
     let map x = 
         let info = DirectoryInfo(x)
@@ -73,7 +73,7 @@ let rec startConsole() =
     match folder with
     | Some folder -> 
         executeCommand "code" (sprintf "\"%s\"" folder) 
-        startConsole()
-    | None -> 
-        startConsole()
+        //startConsole()
+    | None -> ()
+        //startConsole()
 

@@ -1,6 +1,6 @@
 {
   "name": "vscode-open-recent",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Open recent Visual Studio Code project from Command Line",
   "main": "index.js",
   "scripts": {
